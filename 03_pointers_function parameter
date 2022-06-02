@@ -1,0 +1,96 @@
+#include <stdio.h>
+
+void func1();
+
+int func2();
+
+void func3(int);
+
+int func4(int);
+
+void func5(int *);
+
+void func6(int *, int *);
+
+void func7(char *, double *);
+
+int main(void) {
+
+	int val = 0;
+	int num = 5;
+	
+	char ch = 'k';
+	double db = 2.78;
+
+	printf("before function: val >> %d\n", val);
+
+	func1();
+	
+	printf("after func1: val >> %d\n", val);
+
+	func2();
+
+	printf("after func2: val >> %d\n", val);
+
+	int tmp = func2();
+
+	printf("after func2: val >> %d\n", val);
+	printf("after func2: tmp >> %d\n", tmp);
+
+	func3(val);
+
+	printf("after func3: val >> %d\n", val);
+
+	tmp = func4(val);
+	printf("after func4: tmp >> %d\n", tmp);
+
+	func5(&val);
+	printf("after func5: val >> %d\n", val);
+
+	printf("before func6: val, num >> (%d, %d)\n", val, num);
+
+	func6(&val, &num);
+
+	printf("after func6: val, num >> (%d, %d)\n", val, num);
+
+	printf("before func7: ch, db >> (%c, %.2lf)\n", ch, db);
+
+	func7(&ch, &db);
+
+	printf("after func7: ch, db >> (%c, %.2lf)\n", ch, db);
+	
+  return 0;
+}
+
+void func1(){
+	int val = 100;
+}
+
+int func2(){
+	int val = 200;
+	return val;
+}
+
+void func3(int x){
+	x = 200;
+}
+
+int func4(int x){
+	x = 300;
+	return x;
+}
+
+void func5(int *xp){
+	*xp = 400;
+}
+
+void func6(int *xp, int *yp){
+
+	*xp = 1000;
+	*yp = 2000;
+}
+
+void func7(char *cp, double *dp){
+	*cp = 'J';
+	*dp = 5.56;
+}
