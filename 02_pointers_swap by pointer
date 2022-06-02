@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(void) {
+
+	double a, b, tmp;
+	double *ap, *bp;
+
+	a = 3.14;
+	b = 2.78;
+
+	printf("value of a: %lf\n", a);
+	printf("value of b: %lf\n", b);
+	
+	ap = &a;
+	bp = &b;
+
+	printf("referencing ap: %lf\n", *ap);
+	printf("referencing bp: %lf\n", *bp);
+
+	tmp = *ap;
+	*ap = *bp;
+	*bp = tmp;
+
+	printf("value of a: %lf\n", a);
+	printf("value of b: %lf\n", b);
+	printf("referencing ap: %lf\n", *ap);
+	printf("referencing bp: %lf\n", *bp);
+	
+  return 0;
+}
