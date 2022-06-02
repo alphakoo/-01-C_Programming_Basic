@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void exchange(double *, double *);
+void exchange2(double *, double *);
+
+int main(void) {
+
+	double val1 = 3.14;
+	double val2 = 2.78;
+
+	printf("before exchange function >> (val1, val2):(%.2lf, %.2lf)\n", val1, val2);
+
+	exchange(&val1, &val2);
+
+	printf("after exchange function >> (val1, val2):(%.2lf, %.2lf)\n", val1, val2);
+
+	exchange2(&val1, &val2);
+
+	printf("after another exchange function >> (val1, val2):(%.2lf, %.2lf)\n", val1, val2);
+	
+  return 0;
+}
+
+void exchange(double *x, double *y){
+
+	double tmp;
+
+	tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+
+void exchange2(double *x, double *y){
+
+	double *p;
+
+	p = (double*)malloc(sizeof(double)*1);
+
+	*p = *x;
+	*x = *y;
+	*y = *p;
+}
