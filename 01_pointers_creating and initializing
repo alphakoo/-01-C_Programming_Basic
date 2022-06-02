@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+int main(void) {
+
+	// variables
+	char ch;
+	int in;
+	double db;
+	// printf("%d\n", sizeof(ch));
+	// pointers
+	char *cp;
+	int *inp;
+	double *dbp;
+
+	// assignment value;
+	ch = 'A';
+	in = 10;
+	db = 3.14;
+	
+	// assignment
+	cp = &ch;
+	inp = &in;
+	dbp = &db;
+
+	// print value
+	printf("ch >> %c\n", ch);
+	printf("in >> %d\n", in);
+	printf("db >> %lf\n", db);
+
+	// print of variable address
+	printf("address of ch >> %p\n", &ch);
+	printf("address of in >> %p\n", &in);
+	printf("address of db >> %p\n", &db);
+
+	// pointers value
+	printf("pointers value of ch >> %p\n", cp);
+	printf("pointers value of inp >> %p\n", inp);
+	printf("pointers value of dbp >> %p\n", dbp);
+
+	// referencing value of pointers
+	printf("pointers value of ch >> %c\n", *cp);
+	printf("pointers value of inp >> %d\n", *inp);
+	printf("pointers value of dbp >> %lf\n", *dbp);
+
+	// address of pointers
+	printf("pointers value of ch >> %p\n", &cp);
+	printf("pointers value of inp >> %p\n", &inp);
+	printf("pointers value of dbp >> %p\n", &dbp);
+
+	// change value by pointers
+	*cp = 'Z';
+	*inp = 20;
+	*dbp = 2.7183;
+
+	// print value
+	printf("ch >> %c\n", ch);
+	printf("in >> %d\n", in);
+	printf("db >> %lf\n", db);
+
+	// referencing value of pointers
+	printf("pointers value of ch >> %c\n", *cp);
+	printf("pointers value of inp >> %d\n", *inp);
+	printf("pointers value of dbp >> %lf\n", *dbp);
+	
+	
+  return 0;
+}
