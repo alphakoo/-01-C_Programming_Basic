@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void input_counts(int *);
+void set_arry(int **, int *);
+void rnd_set_arry(int *, int);
+void print_arry(int *, int);
+void sorting_arry(int *, int);
+
+void division_line();
+
+int main(void) {
+
+	srand((unsigned int)time(NULL));
+	
+	int *arry;
+	int size;
+
+	input_counts(&size);
+
+	set_arry(&arry, &size);
+	
+	rnd_set_arry(arry, size);
+
+	print_arry(arry, size);
+
+	division_line();
+		
+	sorting_arry(arry, size);
+
+	print_arry(arry, size);
+
+	free(arry);
+	
+  return 0;
+}
+
+void set_arry(int **arry, int *size){
+
+	*arry = (int *)malloc(sizeof(int)*(*size));
+
+}
+
+void input_counts(int *size){
+
+	printf("Input data counts >>");
+	scanf("%d", size);
+}
+
+void rnd_set_arry(int *arry, int size){
+
+	for(int i=0; i<size; i++){
+
+		arry[i] = rand() % 100;
+	}
+}
+
+void print_arry(int *arry, int size){
+
+	for(int j=0; j<size; j++){
+
+		printf("arry[%d]: %d\n", j, *(arry+j));
+	}
+}
+
+void sorting_arry(int *arry, int size){
+
+	int tmp;
+	
+	for(int i=0; i<size/2; i++){
+		tmp = arry[i];
+		arry[i] = arry[size-i-1];
+		arry[size-i-1] = tmp;
+	}
+}
+
+void division_line(){
+	printf("\n-----------------------------------------\n");
+}
