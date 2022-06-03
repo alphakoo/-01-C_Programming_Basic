@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void set_arry(double *, int);
+void print_arry(double *, int);
+
+void sorting_arry(double *, int);
+void swap(double *, double *);
+
+int main(void) {
+
+	srand((unsigned int)time(NULL));
+
+	double arry[3]={0};
+	int size;
+	
+	size = sizeof(arry)/sizeof(arry[0]);
+
+	// printf("size: %d\n", size);
+	
+	set_arry(arry, size);
+	
+	print_arry(arry, size);
+
+	sorting_arry(arry, size);
+
+	print_arry(arry, size);
+	
+  return 0;
+}
+
+void set_arry(double *arry_p, int arry_size){
+
+	for(int i=0; i<arry_size; i++){
+		arry_p[i] = rand()%10+1;
+	}
+}
+
+void print_arry(double *arry_p, int arry_size){
+	for(int j=0; j<arry_size; j++){
+		printf("%d >> %.2lf\n", j, arry_p[j]);
+	}
+}
+
+void sorting_arry(double *arry_p, int arry_size){
+
+	if(arry_p[0] > arry_p[1]){ swap(&arry_p[0], &arry_p[1]); }
+	if(arry_p[1] > arry_p[2]){ swap(&arry_p[1], &arry_p[2]); }
+	if(arry_p[0] > arry_p[1]){ swap(&arry_p[0], &arry_p[1]); }
+}
+
+void swap(double *x, double *y){
+
+	double tmp;
+
+	tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
