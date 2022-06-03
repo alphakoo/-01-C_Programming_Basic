@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void set_rnd_arry(int *);
+void print_arry(int *);
+
+#define SIZE 5
+
+int main(void) {
+
+	srand((unsigned int)time(NULL));
+
+	int arry[SIZE];
+	int *ap0, *ap1, *ap2, *ap3, *ap4, *ap5;
+
+	set_rnd_arry(arry);
+
+	print_arry(arry);
+
+	ap0 = arry;
+	ap1 = &arry[0];
+	ap2 = &arry[1];
+	ap3 = &arry[2];
+	ap4 = &arry[3];
+	ap5 = &arry[4];
+
+	printf("address of arry[0]: %p\n", &arry[0]);
+	printf("address of arry[1]: %p\n", &arry[1]);
+	printf("address of arry[2]: %p\n", &arry[2]);
+	printf("address of arry[3]: %p\n", &arry[3]);
+	printf("address of arry[4]: %p\n", &arry[4]);
+
+	printf("\n--------------------------------------\n");
+	
+	printf("value of ap1: %p\n", ap1);
+	printf("value of ap2: %p\n", ap2);
+	printf("value of ap3: %p\n", ap3);
+	printf("value of ap4: %p\n", ap4);
+	printf("value of ap5: %p\n", ap5);
+
+	printf("\n--------------------------------------\n");
+
+	printf("value of referencing ap1: %d\n", *ap1);
+	printf("value of referencing ap2: %d\n", *ap2);
+	printf("value of referencing ap3: %d\n", *ap3);
+	printf("value of referencing ap4: %d\n", *ap4);
+	printf("value of referencing ap5: %d\n", *ap5);
+
+	printf("\n--------------------------------------\n");
+	
+	printf("address of arry: %p\n", arry);
+	printf("address of arry[0]: %p\n", &arry[0]);
+	printf("value of ap0: %d\n", *ap0);
+
+	printf("\n--------------------------------------\n");
+
+	printf("value of arry[0] by referencing: %d\n",*&arry[0]);
+	printf("value of arry[1] by referencing: %d\n",*&arry[1]);
+	printf("value of arry[2] by referencing: %d\n",*&arry[2]);
+	printf("value of arry[3] by referencing: %d\n",*&arry[3]);
+	printf("value of arry[4] by referencing: %d\n",*&arry[4]);
+
+	printf("\n--------------------------------------\n");
+
+	for(int i=0; i<SIZE; i++){
+		printf("value of arry + %d: %d\n", i, *(arry+i));
+	}
+	
+	
+  return 0;
+}
+
+void set_rnd_arry(int *arry){
+
+	for(int i=0; i<SIZE; i++){
+		arry[i] = rand()%100+1;
+	}
+}
+
+void print_arry(int *arry){
+	for(int i=0; i<SIZE; i++){
+		printf("%5d", arry[i]);
+	}
+	printf("\n--------------------------\n");
+}
