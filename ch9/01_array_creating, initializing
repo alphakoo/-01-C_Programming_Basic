@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int arry1[5];
+	int i, res = 0;
+	double average=0;
+
+	printf("Input 5 students points!\n");
+	
+	for(i=0; i<5; i++){
+		scanf("%d", &arry1[i]);
+	}
+	
+	for(i=0; i<5; i++){
+		res += arry1[i];
+		printf("arry1[%d] >> %d\n", i, arry1[i]);
+	}
+
+	printf("Total: %d\n", res);
+
+	average = res / (sizeof(arry1) / sizeof(arry1[0]));
+	
+	printf("Average: %.2lf\n", average);
+  
+  return 0;
+}
