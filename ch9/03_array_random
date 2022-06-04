@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+	int arry1[10] = {};
+	int tmp;
+
+	srand((unsigned int) time(NULL));
+
+	for(int i=0; i<sizeof(arry1) / sizeof(arry1[0]); i++){
+
+		tmp = rand() % 100 + 1;
+
+		arry1[i] = tmp;
+		
+		for(int j=0; j<i; j++){
+
+			if(arry1[j] == tmp){
+				printf("Here!>> %d\n", tmp);
+				i--;
+				break;	
+			}
+		}
+	}
+
+	for(int i=0; i<10; i++){
+		printf("%d >> %d\n", i, arry1[i]);
+	}
+	
+  return 0;
+}
