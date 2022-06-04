@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+	// 실행 때마다 랜덤 추출 값이 다르게
+	// stdlib에 srand, rand
+	srand((unsigned int) time(NULL));			// 난수 초기화
+	
+	int a[5] = {0};
+	int i, tot = 0;
+	double ave = 0;
+
+	for(i=0; i<5; i++){
+		a[i] = rand()%100 + 1;
+	}
+
+	for(i=0; i<5; i++){
+		tot += a[i];
+		printf("a[%d] >> %d\n", i, a[i]);
+	}
+
+	ave = tot / (sizeof(a) / sizeof(a[0]));
+
+	printf("Average: %.2lf\n", ave);
+
+	int cnt = 0;
+	int num = 0;
+	for(i=0; i<5; i++){
+
+		if(a[i] > ave){
+			cnt++;
+			printf("a[%d]:%d is bigger than %.2lf\n", i, a[i], ave);
+		}else{
+			num++;
+			printf("a[%d]:%d is smaller than %.2lf\n", i, a[i], ave);
+		}
+	}
+	printf("bigger cnt: %d\n", cnt);
+	printf("smaller num: %d\n", num);
+
+	//------------------------------------------------
+	int min = 0;
+	int max = 0;
+
+	min = a[0];
+	max = a[0];
+	for(i=0; i<5; i++){
+		if(min > a[i]){
+			min = a[i];
+		}
+		if(max < a[i]){
+			max = a[i];
+		}
+	}
+	printf("min: %d\n", min);
+	printf("max: %d\n", max);
+	
+  return 0;
+}
